@@ -28,7 +28,7 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [peopleInSpace, setPeopleInSpace] = useState([]);
-  // const [isLoaded, setIsLoaded] = useState(false);
+   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     
@@ -36,13 +36,14 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setPeopleInSpace(data.people);
+        console.log(data)
         
       });
   }, []);
 
    // if the data hasn't been loaded, show a loading indicator
   
-  // if (!isLoaded) return <h3>Loading...</h3>;
+   if (!isLoaded) return <h3>Loading...</h3>;
   return <div>
     
     {peopleInSpace.map((person) => person.name)}
